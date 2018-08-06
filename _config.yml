@@ -8,8 +8,8 @@ subtitle: in thinking
 description: in thinking
 keywords: zh
 author: Fritz Chen
-language: zh-cn
-timezone: Asia/Shanghai
+language: zh-Hans
+timezone: Asia/Tokyo
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

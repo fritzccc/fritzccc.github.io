@@ -109,7 +109,7 @@
 **3.** 在 **hexo 根目录下** 的配置文件`_config.yml`里设置主题:
 
     theme: next
-    
+
 ### Bugs
 对于那些遇到 **Error: Cannot find module 'hexo-util'** [问题](https://github.com/iissnan/hexo-theme-next/issues/1490)的人, 请检查你的NPM 版本. 
 
@@ -356,7 +356,7 @@ NexT is built for easily use with elegant appearance. First things first, always
 [browser-url]: https://www.browserstack.com
 
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
-[gitter-url]: https://gitter.im/iissnan/hexo-theme-next?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter-url]: https://gitter.im/iissnan/hexo-theme-next?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge
 
 [travis-image]: https://travis-ci.org/iissnan/hexo-theme-next.svg?branch=master
 [travis-url]: https://travis-ci.org/iissnan/hexo-theme-next?branch=master "Travis CI"
