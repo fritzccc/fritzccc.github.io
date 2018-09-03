@@ -5,8 +5,8 @@
   "hexo": {
     "version": "3.7.1"
   },
-  "scripts":{
-	"submit":"hexo clean && hexo g && hexo d"
+  "scripts": {
+    "submit": "hexo clean && hexo g && hexo d"
   },
   "dependencies": {
     "hexo": "^3.7.1",
