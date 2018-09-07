@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="随笔," />
+  <meta name="keywords" content="ReactiveX,RxJS,Rx," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="TI8过去了，OG证明在这次TI上的表现出来的韧性值得上冠军，LGD的表现证明了自己的实力，但是决赛的失败证明他们的团队决策不够成熟。 心情非常复杂，虽然只是通宵了周末两天，可仅仅这两天就让我心神俱催。">
-<meta name="keywords" content="随笔">
+<meta name="description" content="原文传送 可能你已经看过我前一段时间写过的这篇教程了。觉得太长难懂？好吧，其实 Rx不是那么难，甚至你自己也能创造它。接着看下去吧~">
+<meta name="keywords" content="ReactiveX,RxJS,Rx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TI8小记">
-<meta property="og:url" content="http://yoursite.com/2018/09/03/TI8小记/index.html">
+<meta property="og:title" content="&#39;[译]2分钟介绍Rx&#39;">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/[译] 2分钟介绍Rx/index.html">
 <meta property="og:site_name" content="Fritz...">
-<meta property="og:description" content="TI8过去了，OG证明在这次TI上的表现出来的韧性值得上冠军，LGD的表现证明了自己的实力，但是决赛的失败证明他们的团队决策不够成熟。 心情非常复杂，虽然只是通宵了周末两天，可仅仅这两天就让我心神俱催。">
+<meta property="og:description" content="原文传送 可能你已经看过我前一段时间写过的这篇教程了。觉得太长难懂？好吧，其实 Rx不是那么难，甚至你自己也能创造它。接着看下去吧~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T04:07:15.664Z">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*DvH5Iqul7Nxor7r7AencgA.png">
+<meta property="og:updated_time" content="2018-09-07T01:36:50.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TI8小记">
-<meta name="twitter:description" content="TI8过去了，OG证明在这次TI上的表现出来的韧性值得上冠军，LGD的表现证明了自己的实力，但是决赛的失败证明他们的团队决策不够成熟。 心情非常复杂，虽然只是通宵了周末两天，可仅仅这两天就让我心神俱催。">
+<meta name="twitter:title" content="&#39;[译]2分钟介绍Rx&#39;">
+<meta name="twitter:description" content="原文传送 可能你已经看过我前一段时间写过的这篇教程了。觉得太长难懂？好吧，其实 Rx不是那么难，甚至你自己也能创造它。接着看下去吧~">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/03/TI8小记/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/07/[译] 2分钟介绍Rx/"/>
 
 
 
 
 
-  <title>TI8小记 | Fritz...</title>
+  <title>'[译]2分钟介绍Rx' | Fritz...</title>
   
 
 
@@ -253,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/TI8小记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/[译] 2分钟介绍Rx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fritz Chen">
@@ -270,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TI8小记</h1>
+          <h1 class="post-title" itemprop="name headline">'[译]2分钟介绍Rx'</h1>
         
 
         <div class="post-meta">
@@ -282,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T11:03:51+09:00">
-                2018-09-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T09:41:47+09:00">
+                2018-09-07
               </time>
             
 
@@ -305,8 +309,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/Frontend/" itemprop="url" rel="index">
+                    <span itemprop="name">Frontend</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Frontend/Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">Rx</span>
                   </a>
                 </span>
 
@@ -342,29 +357,24 @@
       
 
       
-        <p>TI8过去了，OG证明在这次TI上的表现出来的韧性值得上冠军，LGD的表现证明了自己的实力，但是决赛的失败证明他们的团队决策不够成熟。</p>
-<p>心情非常复杂，虽然只是通宵了周末两天，可仅仅这两天就让我心神俱催。</p>
+        <p><a href="https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877" target="_blank" rel="noopener">原文传送</a></p>
+<p>可能你已经看过我前一段时间写过的<a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754" target="_blank" rel="noopener">这篇教程</a>了。觉得太长难懂？好吧，其实 Rx不是那么难，甚至你自己也能创造它。接着看下去吧~</p>
 <a id="more"></a>
-<p>先是周六的胜者组决赛，1-1的比分下，LGD在第三局的BP我个人觉得不是特别理想，毕竟TB一定程度还是被小牛克制发挥的，但是LGD有实力啊！在BP不利的情况下，硬生生的把局势控制在自己的手里，TB也养的很肥，最后一波推高拆基地让我一度眼里放出了光芒：“稳了，这下局势82开了，LGD大优！”。边上的女友也被我的欢呼吵醒，揉揉眼睛坐过来陪我看直播。“哎呀，塔要拆光了，对面怎么不守啊？”，“没用，他们守不了，只要这家伙还没活，他们都没有防守的能力”，我点着灰色的小牛头像对女友解释说。此时，距离小牛复活还有55秒，稳稳地拆，全力地肯定没问题的！解说们也很兴奋，大家都看到了全村的那唯一的希望是多么的可靠！当时我心里唯一担心的，就是这个TB和POM都是买活回来的，不过看到LGD拆的那么开心，也就没想那么多。然而开心的时刻如此短暂，就在全场忘我的高呼LGD的时候，小牛突如其来的跳大，那地震的特效音，震碎了我的心，TB死了！POM也没能逃生！</p>
-<p>我双手抱头，哑口无言，默默地看完了之后2分钟发生的事。“TB买活太冲动了！”，我知道这是事后诸葛亮，但还是忍不住大叫道。看了看败者组，EG vs Liquid，无论哪个胜利和LGD打，之后都很悬。</p>
-<p>然后周末凌晨闹钟响起，LGD和EG的败者组决赛要开始了，我不敢看，我怕看到LGD失利，把闹钟调到决赛，再次睡去。</p>
-<p>醒来第一件事，刷新赛程表，横扫EG！LGD赢了！连忙起床看决赛！</p>
-<p>面对OG复读机一般的嘲讽语音，LGD给我一种人狠话不多的成熟感。比赛到来第四局，LGD2-1领先OG，这局的BP也不是特别理想，但是LGD的血魔还是在对线期间杀崩了OG的卡尔，终于到了40分钟，OG的猴子野店被抓，卡尔也还在读秒，LGD离不朽盾近在咫尺。稳稳地拆兵营，中路，上路，OG的猴子在离复活30秒的时候无奈买活守高地，却被FY的酒仙无限吹在半空中只能在边上看戏，哈哈，大快人心！…水人你干什么！？我去？浪死了…立马又买活？这么着急干什么！</p>
-<p>浪费了这一波绝佳的机会，局势又回到了对半开，“好了伤疤忘了痛”，昨天大优势被人一波推高翻盘的教训这么快就忘了吗？打得太不稳了！</p>
-<p>最后…第四局果然…</p>
-<p>最后…决胜局…（Roshan团后，已经没什么可多说了，火猫的Eul秀翻了全场…）</p>
-<p>最后的最后，看着OG捧起不朽盾，心里颇不是滋味。以往几届TI，中国队决赛失利屈居亚军，常见的总结总是那句“技不如人，甘拜下风”。因为确实如此，TI5的EG，TI7的Liquid，无一不是比我们要高上一个段位的BOSS级对手，输给这样的对手，也只能承认实力不济了。</p>
-<p>但这次，这个GGWP却说不出口，LGD输给了自己的不成熟。</p>
-<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p>从2018倒推，我成为一个DOTAer已经十年了。十年间看的比赛，上万场不敢说，几千场肯定是有的，见过后母王朝，爹妈大战，见过IG的盛世，见过中国神翼。绝地翻盘这种事也是经见多了，不论是DK让三追四还是三万经济被翻盘，亦或是经常倒在最后的NEWBEE。 我想大部分人也见过了，那种欣然，狂喜，或者遗憾，愤怒，大家都是有共鸣的。只说TI，都已经八年了，这其中也奉献了无数精彩绝伦的比赛，创造了无数的魔咒，包括偶数年定律。</p>
-<p>但其实在TI6的时候，这个定律就差点被打破，所幸WINGS的存在，让我们仍旧保有着它的魔力。随着今年LGD的败北，这个定律被打破了，当然，我我已经说过了，我不对LGD作任何的责难，我只想谈我自己。 </p>
-<p>在TI6的时候，我已经感觉到DOTA在我心中的位置没有曾经那么那么重要了，我有了更重要的事情去做，我需要去对我的未来作出一定的规划，朝着规划的方向去作出一些努力，而在这个过程中，我没办法留出大块的时间去顾及DOTA了。TI7的时候，我已经无法做到一个合格的DOTAer应该做的——看完每一场比赛。在TI8期间，我还在忙着别的事情，完全没时间去打开手机和电脑。每场比赛也只是看看youtube上的集锦而已，我已经从一个不合格的DOTAer，变成了一个合格的云玩家。</p>
-<p>直到淘汰赛后期，我才有时间坐在电脑前，开始观看比赛。 但DOTA就是DOTA，它的魅力仍在，我很快进入了状态，这几天为村里唯一的独苗茶不思饭不想，昨天LGD被打入败者组，到了晚上我根本睡不着觉，却又不敢打开手机去看，因为害怕，害怕LGD输了，一直到凌晨听到LGD胜利的消息，才稍微眯了一会儿，我已经很久不通宵了，伴随着欣喜的是从胃里翻出的恶心和阵阵的头晕。才眯了一会儿又醒了，LGD已经打到总决赛第三局，情势一片大好，我的身体好像也随着好的情势有了更多的气力，继续看比赛。 之后的发展到现在我都觉得这是一场噩梦，于是晕晕乎乎地敲下这些文字。</p>
-<p>在写这些东西的时候，我一直在想一个问题：关于DOTA，关于TI，这些东西，对我意味着什么？ 在去年TI7的时候，NEWBEE最后的失利，并没有让我有多大的情绪波动，我也不是LGD粉，我对于冠军也没有极大的执念。但却让我感到无比的苦闷，就好像一口老白干卡在嗓子眼，呛到流泪，又吐不出来。 泪眼模糊中，我隐隐有了一丝顿悟，DOTA在我的生命中，已经成了一个符号，和这个符号相连着的，是我即将逝去的DOTA时光。</p>
-<p>TI则是这个符号最重要的一个脚注，这两天的比赛，似乎让我又回到了曾经的时光，我又可以为TI通宵了，我也可以为中国DOTA要摇旗呐喊了，我重新开始分析BP，开始了解各个战队成员，开始做我曾经做过的一切事情——因为TI，因为DOTA。 “中国VS世界”“CN DOTA, BEST DOTA”，“LGD是不可战胜的”，“偶数年定律”，这些东西都再次被我翻了出来，就好像我从箱底翻到了曾经挚爱的玩具，看到了过去的照片，我开始重新把它拿了起来，而它，则把我带回了过去——让我见到了那个曾经把DOTA当做生命中最重要的一件事的我。</p>
-<p> 尽管我知道，这是一场梦，这场梦终究会结束，我会重新回到现实，但我无比的希望这场梦是一个圆满的美梦，我幻想着LGD站在最高领奖台的时候，他们守护了偶数年定律，他们守护了中国DOTA，也许他们会和WINGS一样被高高捧起，也许他们会被称为“中国神爹”，但他们其实最终捍卫的，是这群已经奔向现实的DOTAer的青春。 </p>
-<p>我们即将陷入现实的泥潭 不能亲自走向战场 但我们把希望投射到你们的肩上 希望你们能够扛起中国DOTA的荣光 这也曾是我们青春的梦想 但这梦，终究是没有做完，我不会责怪LGD，也不会责怪任何人，我只是有些愤懑，我只是有些难过。。抱歉，真的很抱歉。</p>
-<p>我真的怕，怕以后连做梦的机会都消失了。。 那时我们有梦，有双数年的魔咒，有中国DOTA必胜的信心。</p>
-<p>如今冠军盾被再次举起，掺杂在欢呼中的，都是梦破碎的声音。</p>
+<p>你知道阵列 (Array) 吗？显然，答案是肯定，这就是个阵列：</p>
+<h3 id="14-9-5-2-10-13-4"><a href="#14-9-5-2-10-13-4" class="headerlink" title="[ 14, 9, 5, 2, 10, 13, 4 ]"></a><em>[ 14, 9, 5, 2, 10, 13, 4 ]</em></h3><p>如果我告诉这是一个<strong>不可变(immutable)</strong>数组，而你需要取走所有奇数，你会怎么做？<br>多数人会这样：</p>
+<h3 id="14-9-5-2-10-13-4-1"><a href="#14-9-5-2-10-13-4-1" class="headerlink" title="[ 14, 9, 5, 2, 10, 13, 4 ]"></a><em>[ 14, 9, 5, 2, 10, 13, 4 ]</em></h3><h3 id="filter-x-gt-x-2-0"><a href="#filter-x-gt-x-2-0" class="headerlink" title="filter( (x) -&gt; x % 2 == 0 )"></a><em>filter( (x) -&gt; x % 2 == 0 )</em></h3><h3 id="14-2-10-4"><a href="#14-2-10-4" class="headerlink" title="[ 14, 2, 10, 4 ]"></a><em>[ 14, 2, 10, 4 ]</em></h3><p>没什么新奇的，对吧？这在 <code>underscore.js</code> , <code>ECMAScript 5.1</code> , <code>LINQ</code> , <code>Guava</code> 等中很常见。它来自功能范例。</p>
+<p>现在让我们来思考下鼠标点击事件。如果你在时间轴上绘制它们，它们看起来就像这样：<br><img src="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png" alt=""></p>
+<p>朋友，这就是 <code>event steam</code> 中文： <code>事件流</code> ，也叫作 <code>Observable</code> 。</p>
+<p>点击事件来自鼠标，因此整个事件流也是<strong>不可变</strong>的，因为在它被定义之后我们无法添加或删除。</p>
+<p>但是如果我只对 <code>x&lt;250</code> 的点击事件感兴趣呢？那么我们不能像通过操作数组一样来过滤并创建新的事件流吗？答案是肯定的：</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png" alt=""></p>
+<h3 id="filter（（event）-gt-event-x-lt-250）"><a href="#filter（（event）-gt-event-x-lt-250）" class="headerlink" title="filter（（event） - &gt; event.x &lt;250）"></a><em>filter（（event） - &gt; event.x &lt;250）</em></h3><p><img src="https://cdn-images-1.medium.com/max/1600/1*DvH5Iqul7Nxor7r7AencgA.png" alt=""></p>
+<p>那么 <strong>不可变数组</strong>和 <strong>Observable </strong>之间的区别是什么？其实并没有差太多。我们可以将 <code>map</code> , <code>filter</code> , <code>reduce</code> 应用于两者。在 <code>Observables</code> 上，还可以应用 <code>merge</code> , <code>delay</code> , <code>concat</code> , <code>buffer</code>, <code>distinct</code> , <code>first</code> , <code>last</code> , <code>zip</code> , <code>startWith</code> ,<code>window</code> ,<code>takeUntil</code> ,<code>skip</code> ,<code>scan</code> ,<code>sample</code> , <code>amb</code> ,<code>join</code> ,<code>flatMap</code> 。</p>
+<p>我们只需要将其视为<strong>异步不可变数组</strong>。</p>
+<p>Rx是事件的underscore.js。也许会有人问，什么是事件？你的应用程序中的大部分内容都不能成为事件吗？</p>
+<p>“应用启动”，“API响应”，“键盘按键”，“invalidateLayout()”，“设备睡眠”等等。</p>
+<p>事实上，任何东西都可以是一系列事件。这只是一个组合和正确组合的问题。</p>
+<p>以上2分钟的Rx介绍。</p>
 
       
     </div>
@@ -382,7 +392,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+            <a href="/tags/ReactiveX/" rel="tag"># ReactiveX</a>
+          
+            <a href="/tags/RxJS/" rel="tag"># RxJS</a>
+          
+            <a href="/tags/Rx/" rel="tag"># Rx</a>
           
         </div>
       
@@ -395,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/14/用 faker 和 json-server 作 Mock Server/" rel="next" title="用 Faker 和 json-server 作 Mock Server">
-                <i class="fa fa-chevron-left"></i> 用 Faker 和 json-server 作 Mock Server
+              <a href="/2018/09/03/TI8小记/" rel="next" title="TI8小记">
+                <i class="fa fa-chevron-left"></i> TI8小记
               </a>
             
           </div>
@@ -404,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/07/[译] 2分钟介绍Rx/" rel="prev" title="'[译]2分钟介绍Rx'">
-                '[译]2分钟介绍Rx' <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#后记"><span class="nav-number">1.</span> <span class="nav-text">后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-9-5-2-10-13-4"><span class="nav-number">1.</span> <span class="nav-text">[ 14, 9, 5, 2, 10, 13, 4 ]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-9-5-2-10-13-4-1"><span class="nav-number">2.</span> <span class="nav-text">[ 14, 9, 5, 2, 10, 13, 4 ]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-x-gt-x-2-0"><span class="nav-number">3.</span> <span class="nav-text">filter( (x) -&gt; x % 2 == 0 )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-2-10-4"><span class="nav-number">4.</span> <span class="nav-text">[ 14, 2, 10, 4 ]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter（（event）-gt-event-x-lt-250）"><span class="nav-number">5.</span> <span class="nav-text">filter（（event） - &gt; event.x &lt;250）</span></a></li></ol></div>
             
 
           </div>
