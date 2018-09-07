@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*DvH5Iqul7Nxor7r7AencgA.png">
-<meta property="og:updated_time" content="2018-09-07T01:36:50.633Z">
+<meta property="og:updated_time" content="2018-09-07T01:41:58.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;[译]2分钟介绍Rx&#39;">
 <meta name="twitter:description" content="原文传送 可能你已经看过我前一段时间写过的这篇教程了。觉得太长难懂？好吧，其实 Rx不是那么难，甚至你自己也能创造它。接着看下去吧~">
@@ -361,18 +361,23 @@
 <p>可能你已经看过我前一段时间写过的<a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754" target="_blank" rel="noopener">这篇教程</a>了。觉得太长难懂？好吧，其实 Rx不是那么难，甚至你自己也能创造它。接着看下去吧~</p>
 <a id="more"></a>
 <p>你知道阵列 (Array) 吗？显然，答案是肯定，这就是个阵列：</p>
-<h3 id="14-9-5-2-10-13-4"><a href="#14-9-5-2-10-13-4" class="headerlink" title="[ 14, 9, 5, 2, 10, 13, 4 ]"></a><em>[ 14, 9, 5, 2, 10, 13, 4 ]</em></h3><p>如果我告诉这是一个<strong>不可变(immutable)</strong>数组，而你需要取走所有奇数，你会怎么做？<br>多数人会这样：</p>
-<h3 id="14-9-5-2-10-13-4-1"><a href="#14-9-5-2-10-13-4-1" class="headerlink" title="[ 14, 9, 5, 2, 10, 13, 4 ]"></a><em>[ 14, 9, 5, 2, 10, 13, 4 ]</em></h3><h3 id="filter-x-gt-x-2-0"><a href="#filter-x-gt-x-2-0" class="headerlink" title="filter( (x) -&gt; x % 2 == 0 )"></a><em>filter( (x) -&gt; x % 2 == 0 )</em></h3><h3 id="14-2-10-4"><a href="#14-2-10-4" class="headerlink" title="[ 14, 2, 10, 4 ]"></a><em>[ 14, 2, 10, 4 ]</em></h3><p>没什么新奇的，对吧？这在 <code>underscore.js</code> , <code>ECMAScript 5.1</code> , <code>LINQ</code> , <code>Guava</code> 等中很常见。它来自功能范例。</p>
+<blockquote>
+<h3 id="14-9-5-2-10-13-4"><a href="#14-9-5-2-10-13-4" class="headerlink" title="[ 14, 9, 5, 2, 10, 13, 4 ]"></a><em>[ 14, 9, 5, 2, 10, 13, 4 ]</em></h3></blockquote>
+<p>如果我告诉这是一个<strong>不可变(immutable)</strong>数组，而你需要取走所有奇数，你会怎么做？<br>多数人会这样：</p>
+<blockquote>
+<h3 id="14-9-5-2-10-13-4-1"><a href="#14-9-5-2-10-13-4-1" class="headerlink" title="[ 14, 9, 5, 2, 10, 13, 4 ]"></a><em>[ 14, 9, 5, 2, 10, 13, 4 ]</em></h3><h3 id="filter-x-gt-x-2-0"><a href="#filter-x-gt-x-2-0" class="headerlink" title="filter( (x) -&gt; x % 2 == 0 )"></a><em>filter( (x) -&gt; x % 2 == 0 )</em></h3><h3 id="14-2-10-4"><a href="#14-2-10-4" class="headerlink" title="[ 14, 2, 10, 4 ]"></a><em>[ 14, 2, 10, 4 ]</em></h3></blockquote>
+<p>没什么新奇的，对吧？这在 <code>underscore.js</code> , <code>ECMAScript 5.1</code> , <code>LINQ</code> , <code>Guava</code> 等中很常见。它来自功能范例。</p>
 <p>现在让我们来思考下鼠标点击事件。如果你在时间轴上绘制它们，它们看起来就像这样：<br><img src="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png" alt=""></p>
 <p>朋友，这就是 <code>event steam</code> 中文： <code>事件流</code> ，也叫作 <code>Observable</code> 。</p>
 <p>点击事件来自鼠标，因此整个事件流也是<strong>不可变</strong>的，因为在它被定义之后我们无法添加或删除。</p>
 <p>但是如果我只对 <code>x&lt;250</code> 的点击事件感兴趣呢？那么我们不能像通过操作数组一样来过滤并创建新的事件流吗？答案是肯定的：</p>
+<blockquote>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*FjTqms95LbK_ztsZXiNpoQ.png" alt=""></p>
 <h3 id="filter（（event）-gt-event-x-lt-250）"><a href="#filter（（event）-gt-event-x-lt-250）" class="headerlink" title="filter（（event） - &gt; event.x &lt;250）"></a><em>filter（（event） - &gt; event.x &lt;250）</em></h3><p><img src="https://cdn-images-1.medium.com/max/1600/1*DvH5Iqul7Nxor7r7AencgA.png" alt=""></p>
+</blockquote>
 <p>那么 <strong>不可变数组</strong>和 <strong>Observable </strong>之间的区别是什么？其实并没有差太多。我们可以将 <code>map</code> , <code>filter</code> , <code>reduce</code> 应用于两者。在 <code>Observables</code> 上，还可以应用 <code>merge</code> , <code>delay</code> , <code>concat</code> , <code>buffer</code>, <code>distinct</code> , <code>first</code> , <code>last</code> , <code>zip</code> , <code>startWith</code> ,<code>window</code> ,<code>takeUntil</code> ,<code>skip</code> ,<code>scan</code> ,<code>sample</code> , <code>amb</code> ,<code>join</code> ,<code>flatMap</code> 。</p>
 <p>我们只需要将其视为<strong>异步不可变数组</strong>。</p>
-<p>Rx是事件的underscore.js。也许会有人问，什么是事件？你的应用程序中的大部分内容都不能成为事件吗？</p>
-<p>“应用启动”，“API响应”，“键盘按键”，“invalidateLayout()”，“设备睡眠”等等。</p>
+<p>Rx是事件的underscore.js。也许会有人问，什么是事件？你的应用程序中的大部分内容不都能成为事件吗？“应用启动”，“API响应”，“键盘按键”，“invalidateLayout()”，“设备睡眠”等等。</p>
 <p>事实上，任何东西都可以是一系列事件。这只是一个组合和正确组合的问题。</p>
 <p>以上2分钟的Rx介绍。</p>
 
