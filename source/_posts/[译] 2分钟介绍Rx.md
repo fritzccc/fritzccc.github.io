@@ -1,5 +1,5 @@
 ---
-title: '''[译]2分钟介绍Rx'''
+title: '[译]2分钟介绍Rx'
 date: 2018-09-07 09:41:47
 categories: 
 - Frontend
