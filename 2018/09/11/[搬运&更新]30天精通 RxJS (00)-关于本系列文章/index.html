@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ReactiveX,RxJS,Rx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写在前面原系列文章在此该系列是我所见过最详尽同时非常通俗易懂的 Rx 入门教程，国内也有不少人搬运过。但问题在于，原文是基于RxJS V5.x的，而当我在2018年9月刚开始接触到 RxJS 的时候，  RxJS 的版本俨然已经到了 V6.x ( 目前 V6.3.2 ) ，这就导致很多的 Demo 代码已经失效了。搬运的同时，我也会用最新 6.x 版本来重新写所有的 Demo ，就当是自己的复习">
+<meta name="keywords" content="ReactiveX,RxJS,Rx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[搬运&amp;更新]30天精通 RxJS (00)-关于本系列文章">
+<meta property="og:url" content="http://yoursite.com/2018/09/11/[搬运&更新]30天精通 RxJS (00)-关于本系列文章/index.html">
+<meta property="og:site_name" content="Fritz...">
+<meta property="og:description" content="写在前面原系列文章在此该系列是我所见过最详尽同时非常通俗易懂的 Rx 入门教程，国内也有不少人搬运过。但问题在于，原文是基于RxJS V5.x的，而当我在2018年9月刚开始接触到 RxJS 的时候，  RxJS 的版本俨然已经到了 V6.x ( 目前 V6.3.2 ) ，这就导致很多的 Demo 代码已经失效了。搬运的同时，我也会用最新 6.x 版本来重新写所有的 Demo ，就当是自己的复习">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/logos/logo.png">
+<meta property="og:updated_time" content="2018-09-11T08:20:53.212Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[搬运&amp;更新]30天精通 RxJS (00)-关于本系列文章">
+<meta name="twitter:description" content="写在前面原系列文章在此该系列是我所见过最详尽同时非常通俗易懂的 Rx 入门教程，国内也有不少人搬运过。但问题在于，原文是基于RxJS V5.x的，而当我在2018年9月刚开始接触到 RxJS 的时候，  RxJS 的版本俨然已经到了 V6.x ( 目前 V6.3.2 ) ，这就导致很多的 Demo 代码已经失效了。搬运的同时，我也会用最新 6.x 版本来重新写所有的 Demo ，就当是自己的复习">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/logos/logo.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/11/[搬运&更新]30天精通 RxJS (00)-关于本系列文章/"/>
+
+
+
+
+
+  <title>[搬运&更新]30天精通 RxJS (00)-关于本系列文章 | Fritz...</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fritz...</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">in thinking</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-/tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-/categories"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-/archives"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/[搬运&更新]30天精通 RxJS (00)-关于本系列文章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fritz Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fritz...">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[搬运&更新]30天精通 RxJS (00)-关于本系列文章</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T16:17:03+09:00">
+                2018-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/30天精通Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">30天精通Rx</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/30天精通Rx/Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">Rx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><strong>写在前面</strong><br><a href="https://ithelp.ithome.com.tw/users/20103367/ironman/1199" target="_blank" rel="noopener">原系列文章在此</a><br>该系列是我所见过最详尽同时非常通俗易懂的 Rx 入门教程，国内也有不少人搬运过。但问题在于，原文是基于RxJS V5.x的，而当我在2018年9月刚开始接触到 RxJS 的时候，  RxJS 的版本俨然已经到了 V6.x ( 目前 V6.3.2 ) ，这就导致很多的 Demo 代码已经失效了。搬运的同时，我也会用最新 6.x 版本来重新写所有的 Demo ，就当是自己的复习吧。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h2><blockquote>
+<p>就如同罗辑思维罗胖老师所说的，在这信息爆炸的时代，所有的内容生产者要思考一个新维度，那就是我们能帮读者节省多少的时间？这系列文章的核心目标就是帮助读者节省学习 RxJS 的时间，尽可能地以最低的成本精通 RxJS！</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/logos/logo.png"></p>
+<p>###前言</p>
+<p>笔者从去年就一直想参加铁人赛 30 天，一方面是希望利用机会把自己的所学做一次整理，另一方面想训练自己组织文章的能力。去年的时候我想写 ECMAScript 2015，也准备了一段时间，结果没想到去年停办了一年。</p>
+<p>今年总算让我成功地参加铁人赛 30 天，虽然没有很充裕的准备时间，但我会尽可能地把每个观念、每个细节写清楚，也希望我能坚持到最后！</p>
+<blockquote>
+<p>你问我，我是谁？ 我是一名前端工程师，为了保留一点神秘感就不多做自我介绍了。</p>
+</blockquote>
+<h3 id="为什么写-RxJS-？"><a href="#为什么写-RxJS-？" class="headerlink" title="为什么写 RxJS ？"></a>为什么写 <a href="https://github.com/ReactiveX/rxjs" target="_blank" rel="noopener">RxJS</a> ？</h3><p>其实今年笔者一直在下面这三个主题中犹豫，不知道该选哪一个…</p>
+<ul>
+<li>ECMAScript 2015 (ES6)</li>
+<li>RxJS</li>
+<li>Universal JavaScript</li>
+</ul>
+<p>最一开始是想写 ECMAScript 2015 的，但一年过去了，在网络上相关的中文资源已经非常多，大部分的前端工程师也或多或少有在接触，对我来说我不太喜欢写已经有很多人写过的主题。</p>
+<p>后来是在 Universal JS 跟 RxJS 中犹豫，这两个主题都是目前中文资源较为缺乏的，而且受众也较 ES6 小很多，算是比较大的挑战。后来权衡之下，认为 Universal JS 的牵涉范围太广，不易写深，且对前端工程师来说有着一定的门槛，所以还是选了受众相对较多的 RxJS。</p>
+<p>但 RxJS 仍然是一个不容易撰写的主题，主要原因是整体观念较为抽象不好解释，另外网路上的资源几乎都是英文，且有些资源已经过时，难以判断是否仍然适用。对笔者来说绝对是一个巨大的挑战！</p>
+<p>当然 RxJS 是笔者认为未来两三年内会变得非常红的一套 Library，主要原因有三：</p>
+<ul>
+<li><p>Reactive Programming 的兴起</p>
+</li>
+<li><p>Observable 标准化</p>
+</li>
+<li><p>多语言的支持</p>
+</li>
+</ul>
+<h3 id="Reactive-Programming-的兴起"><a href="#Reactive-Programming-的兴起" class="headerlink" title="Reactive Programming 的兴起"></a>Reactive Programming 的兴起</h3><p>Reactive Programming 是 RxJS 最重要的核心观念之一，我们会在明天做比较深入的介绍。</p>
+<p>如果有在关注 Vue 的工程师，应该会知道 <a href="https://cn.vuejs.org/index.html" target="_blank" rel="noopener">Vue.js</a> 的底层就是採用了 Reactive Programming 的观念来实作的，另外 Vue 官方也在 2017 年 11 月推出了 <a href="https://github.com/vuejs/vue-rx" target="_blank" rel="noopener">vue-rx</a> 。</p>
+<blockquote>
+<p><em>vue-rx 已更新到 2.0 ，只对 RxJS V6生效，如果你想继续使用 RxJS V5 风格的代码，需安装 <code>rxjs-compat</code></em></p>
+</blockquote>
+<p>另一方面 <a href="https://github.com/angular/angular" target="_blank" rel="noopener">Angular 2</a> 也全面引用了 RxJS，不管是在 http 还是 animation 都用了 RxJS 的 Observable！</p>
+<p><a href="https://redux.js.org/" target="_blank" rel="noopener">Redux</a> 也在 <a href="https://github.com/reduxjs/redux/releases/tag/v3.5.0" target="_blank" rel="noopener">3.5</a> 版中加入了对 Observable 操作的支持。</p>
+<p>从这几个前端的主流 Framework (或 Library) 就能明显地看出这个趋势，大家都在往这个方向走。</p>
+<blockquote>
+<p>笔者也在今年 JSDC.tw 演讲中提到，目前前端框架同质化的程度越来越高，很多观念会在各个不同的 Library 或 Framework 中通用！</p>
+</blockquote>
+<h3 id="Observable-标准化"><a href="#Observable-标准化" class="headerlink" title="Observable 标准化"></a>Observable 标准化</h3><p>还有一个最重要的重点是 Observable 将会被加入 ECMAScript 的标准(应该会在 ES7 推出，我相信 Jafar 不会骗我)。<br>另外 RxJS 现在推出了第 <del>5</del> 6 版，这个版本最重要的目标，就是要符合目前 Observable 提桉的规格(当然还有效能的优化)。</p>
+<blockquote>
+<p>RxJS 在三天前发布了第 <del>五</del> 六版！</p>
+</blockquote>
+<blockquote>
+<p>ECMAScript 不是一个新的语言，它是 JavaScript 的一份规格书，所有的浏览器厂家会依照这份规格书去实践出JavaScrip。</p>
+</blockquote>
+<blockquote>
+<p>Jafar Husain： TC-39 成員，RxJS 的大力推广者，目前是 Netflix Cross-Team Technical Leader，同時也是 falcor 的作者之一。</p>
+</blockquote>
+<h3 id="多语言的支持"><a href="#多语言的支持" class="headerlink" title="多语言的支持"></a>多语言的支持</h3><p>其实类似 RxJS 的 Library 还不少，像是 xstream, Bacon.js, most.js 等，那为什么会选 RxJS 呢？</p>
+<p>除了我们前面提到 RxJS V5 的推出，将符合标准规格之外，Rx 还有多个语言支持，几乎所有主流的程式语言都有 Rx 的 Library，像是 RxRuby, RxPy, RxJava…等，不管以后怎么切换语言，几乎只要学一次就随处可用。</p>
+<p>从各主流的 Framework 及 Library 纳入 Observable，到将被加入 ES 的标准规格中，还能有跨语言的支持，这就是为什么我认为 RxJS 会红的原因，相信这波浪潮很快就会席捲 <del>台湾</del> 全球的前端社群！</p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>希望这 30 天的文章，尽可能的涵盖 RxJS 所有项目，并且以浅显易懂的方式解释及表达给所有读者，让读者能在最短的时间内，以最低的成本学会 RxJS，这就是本系列文章最重要的目标！</p>
+<p>另外本系列文章会以 RxJS 第 <del>5</del> 6 版为主，所有的范例及 API 都会依照最新的 V6 版本撰写。</p>
+<p>为了尽可能的降低读者的学习成本，本系列的每篇文章会尽量压缩在 1500 字以内，让读者每天最多花 20 分钟就能读完，并且会在较难理解的文章附上影片讲解，让读者能更轻松的吸收！</p>
+<h3 id="大纲规划"><a href="#大纲规划" class="headerlink" title="大纲规划"></a>大纲规划</h3><p>核心观念篇 (5天)：介绍 Rx 相关的核心观念，及前置知识等。<br>Observable (12～14天)：讲解 Observable 及其方法，并会搭配简单的范例和使用场景。<br>Subject (5～6天)：讲解 Subject，包含观念以及各种不同的子类别。<br>实务应用 (4～6天)：会选实务上较为复杂的需求，作为一段学习的完整应用练习。<br>目前的规划大致如上，也有可能在做改动，如果时间够充裕也可能会再补上 Rx 的 Schedulers。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactiveX/" rel="tag"># ReactiveX</a>
+          
+            <a href="/tags/RxJS/" rel="tag"># RxJS</a>
+          
+            <a href="/tags/Rx/" rel="tag"># Rx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/07/[译] 2分钟介绍Rx/" rel="next" title="[译]2分钟介绍Rx">
+                <i class="fa fa-chevron-left"></i> [译]2分钟介绍Rx
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Fritz Chen</p>
+              <p class="site-description motion-element" itemprop="description">in thinking</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正文开始"><span class="nav-number">1.</span> <span class="nav-text">正文开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么写-RxJS-？"><span class="nav-number">1.1.</span> <span class="nav-text">为什么写 RxJS ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reactive-Programming-的兴起"><span class="nav-number">1.2.</span> <span class="nav-text">Reactive Programming 的兴起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Observable-标准化"><span class="nav-number">1.3.</span> <span class="nav-text">Observable 标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多语言的支持"><span class="nav-number">1.4.</span> <span class="nav-text">多语言的支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.5.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大纲规划"><span class="nav-number">1.6.</span> <span class="nav-text">大纲规划</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fritz Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
