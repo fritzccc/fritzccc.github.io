@@ -253,270 +253,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/[搬运&更新]30天精通 RxJS (01)-认识 RxJS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Fritz Chen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fritz...">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/11/[搬运&更新]30天精通 RxJS (01)-认识 RxJS/" itemprop="url">[搬运&更新]30天精通 RxJS (01)-认识 RxJS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T16:17:03+09:00">
-                2018-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/30天精通Rx/" itemprop="url" rel="index">
-                    <span itemprop="name">30天精通Rx</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/30天精通Rx/Rx/" itemprop="url" rel="index">
-                    <span itemprop="name">Rx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>RxJS 是笔者认为未来几年内会非常红的 Library，RxJS 提供了一套完整的非同步解决方桉，让我们在面对各种非同步行为，不管是 Event, AJAX, 还是 Animation 等，我们都可以使用相同的 API (Application Programming Interface) 做开发。</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/logos/logo.png"></p>
-<p>这是【30天精通 RxJS】的 01 篇，如果还没看过 00 篇可以往这边走：<br><a href="https://fritzccc.github.io/2018/09/11/[%E6%90%AC%E8%BF%90&amp;%E6%9B%B4%E6%96%B0]30%E5%A4%A9%E7%B2%BE%E9%80%9A%20RxJS%20(00" target="_blank" rel="noopener">30 天精通 RxJS (00)： 关于本系列文章</a>-%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0/)</p>
-<p>在网页的世界存取任何资源都是非同步(Async)的，比如说我们希望拿到一个数据，要先发送一个请求，然后必须等到数据回来，再执行对这个数据的操作。这就是一个非同步的行为，而随着网页需求的复杂化，我们所写的 JavaScript 就有各种针对非同步行为的写法，例如使用 callback 或是 Promise 对象甚至是新的语法糖 async/await —— 但随着应用需求越来越复杂，编写非同步的代码仍然非常困难。</p>
-<h3 id="非同步常见的问题"><a href="#非同步常见的问题" class="headerlink" title="非同步常见的问题"></a>非同步常见的问题</h3><ul>
-<li><p>竞争条件 (Race Condition)</p>
-</li>
-<li><p>内存泄漏 (Memory Leak)</p>
-</li>
-<li><p>复杂的状态 (Complex State)</p>
-</li>
-<li><p>例外处理 (Exception Handling)</p>
-</li>
-</ul>
-<h3 id="竞争条件-Race-Condition"><a href="#竞争条件-Race-Condition" class="headerlink" title="竞争条件 (Race Condition)"></a>竞争条件 (Race Condition)</h3><p>每当我们对同一个资源同时做多次的非同步存取时，就可能发生 Race Condition 的问题。比如说我们发了一个 Request 更新使用者资料，然后我们又立即发送另一个 Request 取得使用者资料，这时第一个 Request 和第二个 Request 先后顺序就会影响到最终接收到的结果不同，这就是 Race Condition。</p>
-<h3 id="内存泄漏-Memory-Leak"><a href="#内存泄漏-Memory-Leak" class="headerlink" title="内存泄漏 (Memory Leak)"></a>内存泄漏 (Memory Leak)</h3><p>Memory Leak 是最常被大家忽略的一点。原因是在传统网站的行为，我们每次换页都是整页重刷，并重新执行 JavaScript，所以不太需要理会内存使用的问题！但是当我们希望将网站做得像应用一般时，这件事就变得很重要。例如做 SPA (Single Page Application) 网站时，我们是通过 JavaScript 来达到切换页面的内容，这时如果有对 DOM 注册监听事件，而没有在适当的时机点把监听的事件移除，就有可能造成 Memory Leak。比如说在 A 页面监听 body 的 scroll 事件，但页面切换时，没有把 scroll 的监听事件移除。</p>
-<h3 id="复杂的状态-Complex-State"><a href="#复杂的状态-Complex-State" class="headerlink" title="复杂的状态 (Complex State)"></a>复杂的状态 (Complex State)</h3><p>当有非同步行为时，应用程序的状态就会变得非常复杂！比如说我们有一支付费用户才能播放的影片，首先可能要先获取这部影片的信息，接着我们要在播放时去验证使用者是否有权限播放，而使用者也有可能再按下播放后又立即按了取消，而这些都是非同步执行，这时就会各种复杂的状态需要处理。</p>
-<h3 id="例外处理-Exception-Handling"><a href="#例外处理-Exception-Handling" class="headerlink" title="例外处理 (Exception Handling)"></a>例外处理 (Exception Handling)</h3><p>JavaScript 的 try/catch 可以捕捉同步的例外，但非同步的程序 (比如 Promise) 就没这么容易，尤其当我们的非同步行为很复杂时，这个问题就愈加明显。</p>
-<h3 id="各种不同的-API"><a href="#各种不同的-API" class="headerlink" title="各种不同的 API"></a>各种不同的 API</h3><p>我们除了要面对非同步会遇到的各种问题外，还需要时刻注意很多不同的API</p>
-<ul>
-<li>DOM Events</li>
-<li>XMLHttpRequest</li>
-<li>fetch</li>
-<li>WebSockets</li>
-<li>Server Send Events</li>
-<li>Service Worker</li>
-<li>Node Stream</li>
-<li>Timer</li>
-</ul>
-<p>以上 API 都是非同步的，但他们都有各自的API和写法！如果我们使用 RxJS ，上面所有的 API 都可以通过 RxJS 来处理，就能用同样的 API 操作 ( RxJS 的 API)。</p>
-<p>这里我们举一个例子，加入我们想要监听单击事件 (click event)，但在点击一次后就不再监听</p>
-<p>原生JS</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(e);</span><br><span class="line">	<span class="built_in">document</span>.body.removeEventListener(<span class="string">'click'</span>, handler); <span class="comment">// 注销监听</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注册监听</span></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, handler);</span><br></pre></td></tr></table></figure>
-<p>RxJS</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;take&#125; = rxjs.operators;</span><br><span class="line">rxjs.fromEvent(<span class="built_in">document</span>.body, <span class="string">'click'</span>).pipe(</span><br><span class="line">	take(<span class="number">1</span>)	<span class="comment">//只取一次</span></span><br><span class="line">).subscribe(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.log(e))</span><br></pre></td></tr></table></figure>
-<p><a href="https://jsbin.com/hefava/edit?js,console,output" target="_blank" rel="noopener">JSbin</a></p>
-<p>(点击画面后会在 console 显示，记得打开 console 来看)</p>
-<p>大致上能看得出来我们在使用 RxJS 后，不管是针对 DOM Event 还是上面列的各种 API 我们都可以通过 RxJS 的 API 来做资料操作，像是范例中用 take(n) 来设定只取一次，之后就释放内存。</p>
-<p>说了这么多，其实就是简单一句话</p>
-<p>在面对日益复杂的问题，我们需要一个更好的解决方法。</p>
-<h3 id="RxJS-基本介绍"><a href="#RxJS-基本介绍" class="headerlink" title="RxJS 基本介绍"></a>RxJS 基本介绍</h3><p>RxJS 是一套藉由 <strong>Observable sequences</strong> 来组合非同步行为和事件基础程序的 Library！</p>
-<blockquote>
-<p>可以把 RxJS 想成是处理 非同步行为 的 Lodash。</p>
-</blockquote>
-<p>这也被称为 Functional Reactive Programming (FRP) ，更切确地说是指 Functional Programming 及 Reactive Programming 两个编程思想的结合。</p>
-<blockquote>
-<p>RxJS 确实是 Functional Programming 跟 Reactive Programming 的结合，但能不能称为 Functional Reactive Programming (FRP) 一直有争议。</p>
-</blockquote>
-<blockquote>
-<p>Rx 在官网上特别指出，有时这会被称为 FRP 但这其实是个“误称”。</p>
-</blockquote>
-<blockquote>
-<p>简单说 FRP 是操作随着时间连续性改变的数值 而 Rx 则比较像是操作随着时间发出的离散数值，这个部份读者不用分得太细，因为 FRP 的定义及解释一直存在着歧异，也有众多大神为此争论，如下</p>
-</blockquote>
-<blockquote>
-<p><a href="https://medium.com/@andrestaltz/why-i-cannot-say-frp-but-i-just-did-d5ffaa23973b#.dhmsyic9w" target="_blank" rel="noopener">André Staltz</a>：Rx 着名的推广者，也是 RxJS 5 主要贡献者之一，同时是 Cycle.js 的作者。Staltz 特别写了一篇文章解释为什么 Rx 不能说是 FRP 但他仍然称其为 FRP。</p>
-</blockquote>
-<blockquote>
-<p><a href="https://twitter.com/_juandg" target="_blank" rel="noopener">Juan Gomez</a>：曾在 Netflix 工作，目前任职于 Fitbit，经常出现在国外研讨会，主要写 Android。Juan Gomez 在 <a href="https://realm.io/news/droidcon-gomez-functional-reactive-programming/" target="_blank" rel="noopener">Droidcon NYC 2015 的演讲</a>中特别提出他坚持称 Rx 为 FRP。</p>
-</blockquote>
-<blockquote>
-<p><a href="https://twitter.com/czaplic" target="_blank" rel="noopener">Evan Czaplicki</a>：任职于 NoRedInk，Elm 的作者。Evan 在 <a href="https://www.youtube.com/watch?v=Agu6jipKfYw" target="_blank" rel="noopener">StrangeLoop 2014 的演讲</a>中，特别为现在各种 FRP 的不同解释做分类。</p>
-</blockquote>
-<blockquote>
-<p>笔者自己的看法是比较偏向直接称 Rx 为 FRP，原因是这较为直觉(FP + RP = FRP)，也比较不会对新手造成困惑，另外就是其他各种编程范式(包含 OOP, FP)其实都是<strong>想法的集合，而非严格的指南(Guideline)</strong>，我们应该更宽鬆的看待 FRP 而不是给他一个严格的定义。</p>
-</blockquote>
-<h3 id="关于-Reactive-Extension-Rx"><a href="#关于-Reactive-Extension-Rx" class="headerlink" title="关于 Reactive Extension (Rx)"></a>关于 Reactive Extension (Rx)</h3><p>Rx 最早是由微软开发的 LinQ 扩展出来的开源专桉，之后主要由社群的工程师贡献，有多种语言支援，也被许多科技公司所採用，如 Netflix, Trello, Github, Airbnb…等。</p>
-<h3 id="Rx-的相关信息"><a href="#Rx-的相关信息" class="headerlink" title="Rx 的相关信息"></a>Rx 的相关信息</h3><ul>
-<li><p>开源项目 (Apache 2.0 License)</p>
-</li>
-<li><p>支持多种编程语言</p>
-<ul>
-<li>JavaScript</li>
-<li>Java</li>
-<li>C#</li>
-<li>Python</li>
-<li>Ruby</li>
-<li>…(太多了列不完)</li>
-</ul>
-</li>
-<li><p><a href="http://reactivex.io/" target="_blank" rel="noopener">官网</a></p>
-</li>
-<li><del>微软迄今为止最成功的开源项目</del></li>
-</ul>
-<blockquote>
-<p>LinQ 读作 Link，全名是 Language-Integrated Query，其功能很多元也非常强大；学习 RxJS 可以不用会。</p>
-</blockquote>
-<h3 id="Functional-Reactive-Programming"><a href="#Functional-Reactive-Programming" class="headerlink" title="Functional Reactive Programming"></a>Functional Reactive Programming</h3><p>Functional Reactive Programming 是一种编程范式(programming paradigm)，白话就是一种<strong>写程序的方法论</strong>！举个例子，像 OOP 就是一种编程范式，OOP 告诉我们要使用物件的方式来思考问题，以及撰写程序。而 Functional Reactive Programming 其实涵盖了 Reactive Programming 及 Functional Programming 两种编程思想。</p>
-<p><strong>Functional Programming</strong></p>
-<p>Functional Programming 大部分的人应该多少都有接触过，这也是 Rx 学习过程中的重点之一，我们之后会花两天的篇幅来细讲 Functional Programming。<br>如果要用一句话来总结 Functional Programming，那就是 <strong>用 function 来思考我们的问题，以及编写程序</strong></p>
-<blockquote>
-<p>在下一篇文章会更深入的讲解 Functional Programming</p>
-</blockquote>
-<p><strong>Reactive Programming</strong></p>
-<blockquote>
-<p>很多人一谈到 Reactive Programming 就会直接联想到是在讲 RxJS，但实际上 Reactive Programming 仍是一种编程范式，在不同的场景都有机会遇到，而非只存在于 RxJS，尤雨溪(Vue 的作者)就曾在 twitter 对此表达不满！</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2018/09/18/ieFiVS.png"></p>
-<p>Reactive Programming 简单来说就是 <strong>当变量或资源发生变动时，由变量或资源自动告诉我发生变动了</strong></p>
-<p>这句话看似简单，其实背后隐含两件事</p>
-<ul>
-<li>当发生变动 =&gt; 非同步：不知道什么时候会发生变动，反正变动时要跟我说</li>
-<li>由变量自动告知我 =&gt; 我不用写通知我的每一步代码</li>
-</ul>
-<p>由于最近很红的 Vue.js 底层就是用 Reactive Programming 的概念实现，让我能很好的举例，让大家理解什么是 Reactive Programming！</p>
-<p>当我们在使用 vue 开发时，只要一有绑定的变量发生改变，相关的变量及画面也会跟着变动，而开发者不需要写这其中如何<strong>通知</strong>发生变化的每一步代码，只需要<strong>专注在发生变化时要做什么事</strong>，这就是典型的 Reactive Programming (记得必须是由变量或资源主动告知！)</p>
-<blockquote>
-<p>Vue.js 在做 two-ways data binding 是透过 ES5 definedProperty 的 getter/setter。每当变量发生变动时，就会执行 getter/setter 从而收集有改动的变量，这也被称为<strong>依赖收集</strong>。</p>
-</blockquote>
-<p>Rx 基本上就是上述的两个观念的结合，这个部份读者在看完之后的文章，会有更深的体悟。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/[搬运&更新]30天精通 RxJS (00)-关于本系列文章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -626,6 +362,165 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/11/[搬运&更新]30天精通 RxJS (00)-关于本系列文章/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/[搬运&更新]30天精通 RxJS (01)-认识 RxJS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fritz Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fritz...">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/11/[搬运&更新]30天精通 RxJS (01)-认识 RxJS/" itemprop="url">[搬运&更新]30天精通 RxJS (01)-认识 RxJS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T16:17:03+09:00">
+                2018-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/30天精通Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">30天精通Rx</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/30天精通Rx/Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">Rx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>RxJS 是笔者认为未来几年内会非常红的 Library，RxJS 提供了一套完整的非同步解决方桉，让我们在面对各种非同步行为，不管是 Event, AJAX, 还是 Animation 等，我们都可以使用相同的 API (Application Programming Interface) 做开发。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/11/[搬运&更新]30天精通 RxJS (01)-认识 RxJS/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
