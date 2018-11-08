@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ReactiveX,RxJS,Rx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="了解 Functional Programming 的常用函数，能让我们写出更简洁的程式码，也能帮助我们学习 RxJS。">
+<meta name="keywords" content="ReactiveX,RxJS,Rx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[搬运&amp;更新]30天精通 RxJS (03)-Functional Programming 常用函数">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/[搬运&更新]30天精通 RxJS (03)-Functional Programming 通用函数/index.html">
+<meta property="og:site_name" content="Fritz...">
+<meta property="og:description" content="了解 Functional Programming 的常用函数，能让我们写出更简洁的程式码，也能帮助我们学习 RxJS。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013879622109990efbf9d781704b02994ba96765595f56000/0">
+<meta property="og:updated_time" content="2018-11-08T04:43:50.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[搬运&amp;更新]30天精通 RxJS (03)-Functional Programming 常用函数">
+<meta name="twitter:description" content="了解 Functional Programming 的常用函数，能让我们写出更简洁的程式码，也能帮助我们学习 RxJS。">
+<meta name="twitter:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013879622109990efbf9d781704b02994ba96765595f56000/0">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/[搬运&更新]30天精通 RxJS (03)-Functional Programming 通用函数/"/>
+
+
+
+
+
+  <title>[搬运&更新]30天精通 RxJS (03)-Functional Programming 常用函数 | Fritz...</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fritz...</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">in thinking</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-/tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-/categories"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-/archives"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/[搬运&更新]30天精通 RxJS (03)-Functional Programming 通用函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fritz Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fritz...">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[搬运&更新]30天精通 RxJS (03)-Functional Programming 常用函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T11:21:12+09:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/30天精通Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">30天精通Rx</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/30天精通Rx/Rx/" itemprop="url" rel="index">
+                    <span itemprop="name">Rx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>了解 Functional Programming 的常用函数，能让我们写出更简洁的程式码，也能帮助我们学习 RxJS。</p>
+</blockquote>
+<a id="more"></a>
+<p>RxJS 核心的 Observable 操作观念跟 FP 的数组操作是极为相近的，只学会以下几个基本的方法跟观念后，会让我们之后上手 Observable 简单很多！</p>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>在 <code>forEach</code> 出现之前，我们需要通过 <code>for</code> 循环来遍历数组中的每一个元素 :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'Mike'</span>,<span class="string">'Jack'</span>,<span class="number">123</span>,<span class="string">'Tom'</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而使用 <code>forEach</code> 的话</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'Mike'</span>,<span class="string">'Jack'</span>,<span class="number">123</span>,<span class="string">'Tom'</span>];</span><br><span class="line">arr.forEach(<span class="function"><span class="params">ele</span>=&gt;</span><span class="built_in">console</span>.log(ele));</span><br></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><blockquote>
+<p>此处借用廖雪峰老师HP的JS教程内容，如有侵犯，立马删除</p>
+</blockquote>
+<p>举例说明，比如我们有一个函数f(x)=x2，要把这个函数作用在一个数组<code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>上，就可以用<code>map</code>实现如下：</p>
+<p><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013879622109990efbf9d781704b02994ba96765595f56000/0" alt="map"></p>
+<p>由于<code>map()</code>方法定义在JavaScript的<code>Array</code>中，我们调用<code>Array</code>的<code>map()</code>方法，传入我们自己的函数，就得到了一个新的<code>Array</code>作为结果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"><span class="keyword">const</span> results = arr.map(<span class="function"><span class="params">num</span> =&gt;</span> num * num); <span class="comment">// [1, 4, 9, 16, 25, 36, 49, 64, 81]</span></span><br></pre></td></tr></table></figure>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>正如其意，它会替我们过滤一个数组，只留下我们想要的元素，并产生一个新的数组返回：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"><span class="keyword">const</span> results = arr.filter(<span class="function"><span class="params">num</span> =&gt;</span> num &gt; <span class="number">6</span>); <span class="comment">// [7, 8, 9]</span></span><br></pre></td></tr></table></figure>
+<h3 id="concatAll"><a href="#concatAll" class="headerlink" title="concatAll"></a>concatAll</h3><p>非JS标准方法，在 RxJS 常用，所以提及一下。有时候我们会遇到如下数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  id: <span class="number">888</span>,</span><br><span class="line">  name: <span class="string">'JerryHong'</span>,</span><br><span class="line">  courseLists: [&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"My Courses"</span>,</span><br><span class="line">    <span class="string">"courses"</span>: [&#123;</span><br><span class="line">      <span class="string">"id"</span>: <span class="number">511019</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"React for Beginners"</span>,</span><br><span class="line">      <span class="string">"coverPng"</span>: <span class="string">"https://res.cloudinary.com/dohtkyi84/image/upload/v1481226146/react-cover.png"</span>,</span><br><span class="line">      <span class="string">"tags"</span>: [&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"JavaScript"</span> &#125;],</span><br><span class="line">      <span class="string">"rating"</span>: <span class="number">5</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="string">"id"</span>: <span class="number">511020</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"Front-End automat workflow"</span>,</span><br><span class="line">      <span class="string">"coverPng"</span>: <span class="string">"https://res.cloudinary.com/dohtkyi84/image/upload/v1481226146/react-cover.png"</span>,</span><br><span class="line">      <span class="string">"tags"</span>: [&#123; <span class="string">"id"</span>: <span class="number">2</span>, <span class="string">"name"</span>: <span class="string">"gulp"</span> &#125;, &#123; <span class="string">"id"</span>: <span class="number">3</span>, <span class="string">"name"</span>: <span class="string">"webpack"</span> &#125;],</span><br><span class="line">      <span class="string">"rating"</span>: <span class="number">4</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"New Release"</span>,</span><br><span class="line">    <span class="string">"courses"</span>: [&#123;</span><br><span class="line">      <span class="string">"id"</span>: <span class="number">511022</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"Vue2 for Beginners"</span>,</span><br><span class="line">      <span class="string">"coverPng"</span>: <span class="string">"https://res.cloudinary.com/dohtkyi84/image/upload/v1481226146/react-cover.png"</span>,</span><br><span class="line">      <span class="string">"tags"</span>: [&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"JavaScript"</span> &#125;],</span><br><span class="line">      <span class="string">"rating"</span>: <span class="number">5</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="string">"id"</span>: <span class="number">511023</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"Angular2 for Beginners"</span>,</span><br><span class="line">      <span class="string">"coverPng"</span>: <span class="string">"https://res.cloudinary.com/dohtkyi84/image/upload/v1481226146/react-cover.png"</span>,</span><br><span class="line">      <span class="string">"tags"</span>: [&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"JavaScript"</span> &#125;],</span><br><span class="line">      <span class="string">"rating"</span>: <span class="number">4</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如果想要抽取出其中所有 <code>rating</code> 为 5 的课程，使用前面的 <code>forEach</code> 的话：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ratingIsFive=[];</span><br><span class="line">user.courseLists.forEach(<span class="function"><span class="params">list</span>=&gt;</span>&#123;</span><br><span class="line">  list.courses.filter(<span class="function"><span class="params">item</span>=&gt;</span>item.rating===<span class="number">5</span>)</span><br><span class="line">    .forEach(<span class="function"><span class="params">item</span>=&gt;</span>ratingIsFive.push(item))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>可以看到我们用了两次 <code>forEach</code> 才得以实现，如果有一个方法可以摊平 <code>courseLists</code> 这种二维数组，那么事情就简单多了，我们把这种方法叫作 <code>concatAll</code> 。</p>
+<p>我们就来试着实现 concatAll 吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.concatAll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 用 apply </span></span><br><span class="line">  <span class="keyword">this</span>.forEach(<span class="function">(<span class="params">array</span>) =&gt;</span> &#123;</span><br><span class="line">    result.push.apply(result, array);</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ES6</span></span><br><span class="line">  <span class="comment">// this.forEach((array) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   result.push(...array);</span></span><br><span class="line">  <span class="comment">// &#125;)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>好了，试试我们刚完成的 concatAll 吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ratingIsFive=user.courseLists.map(<span class="function"><span class="params">list</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> list.courses.filter(<span class="function"><span class="params">course</span>=&gt;</span>course.rating===<span class="number">5</span>);</span><br><span class="line">&#125;).concatAll();</span><br></pre></td></tr></table></figure>
+<p>想了解更多，或者练习一下，可以到这里：<a href="http://reactivex.io/learnrx/" target="_blank" rel="noopener">http://reactivex.io/learnrx/</a></p>
+<blockquote>
+<p>这是 Jafar 大神为他的 RxJS workshop 所做的练习网站！</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactiveX/" rel="tag"># ReactiveX</a>
+          
+            <a href="/tags/RxJS/" rel="tag"># RxJS</a>
+          
+            <a href="/tags/Rx/" rel="tag"># Rx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/[搬运&更新]30天精通 RxJS (02)-Functional Programming 基本观念/" rel="next" title="[搬运&更新]30天精通 RxJS (02)-Functional Programming 基本观念">
+                <i class="fa fa-chevron-left"></i> [搬运&更新]30天精通 RxJS (02)-Functional Programming 基本观念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Fritz Chen</p>
+              <p class="site-description motion-element" itemprop="description">in thinking</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">1.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">2.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">3.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concatAll"><span class="nav-number">4.</span> <span class="nav-text">concatAll</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fritz Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
